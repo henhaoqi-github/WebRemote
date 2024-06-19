@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Control</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            text-align: center;
+        }
+        
+        .remote {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: #fff;
+            font-size: 20px;
+            line-height: 60px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .confirm {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="remote">
+        <div class="button left" onclick="pressLeft()">&#8592;</div>
+        <div class="button confirm" onclick="pressOk()">OK</div>
+        <div class="button right" onclick="pressRight()">&#8594;</div>
+    </div>
+    <script>
+        function pressLeft() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/Crl/KbLeft', true);
+            xhr.send();
+        }
+
+        function pressRight() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/Crl/KbRight', true);
+            xhr.send();
+        }
+
+        function pressOk() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/Crl/KbSpace', true);
+            xhr.send();
+        }
+    </script>
+</body>
+
+</html>
